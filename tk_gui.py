@@ -87,6 +87,45 @@ def open_top():
 
         top.mainloop()
 
+def open_about_NS():
+        '''
+        This function is to display About_NS
+        '''
+        top = Toplevel(master)
+        top.geometry("525x500")
+        top.title('About NS')
+
+        textBox1 = Text(top, height=30, width=70)
+        textBox1.place(x=0,y=0)
+
+        textBox1.insert(END, """No Spoilers is a simple GUI TV show search engine. 
+Users can search and store TV shows in watchlists as well 
+as get updates on new episodes of a certain show.
+
+Features of NoSpoilers:
+>The GUI of NS contains a entry widget where the user
+can enter a the exact name or keywords of the particular
+show that they want to search for.
+>The Search button will search for the show based on the 
+keywords entered by the user in the entry widget and will 
+display the search results in the text box on the GUI.
+>The add to watchlist button will result in adding the 
+show shown in the search results to a watchlist, which 
+can be viewed by clicking on Watchlist>Open watchlist. 
+>The Save watchlist button will ensure that the watchlist 
+is saved on the disk in the form a text file named as wlist.txt
+for referring to in the future, even after the program is closed.
+
+
+Requirements for No Spoilers:
+>pandas
+>prettytable
+>requests
+
+Repo source: git@github.com:acmpesuecc/NoSpoilers.git""")
+
+        top.mainloop()
+
 def watchlist_save():
         '''
         This function is to save the watchlist data
@@ -124,7 +163,7 @@ wList.add_command(label = 'Open watchlist', command = open_top)
 
 help = Menu(menubar, tearoff=0)
 menubar.add_cascade(label='Help', menu = help)
-help.add_command(label = 'About NS', command = None)
+help.add_command(label = 'About NS', command = open_about_NS)
 
 label = Label(master, text='Enter the name of the show')
 label.place(x=50,y=20)
